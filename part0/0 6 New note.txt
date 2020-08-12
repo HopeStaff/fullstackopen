@@ -1,21 +1,8 @@
-title 0.5: Single page app
+title 0.6: New note
 
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
-server-->browser: HTML-code
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
-server-->browser: main.css
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
-server-->browser: main.js
-
-note over browser:
-browser starts executing js-code
-that requests JSON data from server 
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note over server:
+The server responds with status code 201 created. This time the server does not ask 
+for a redirect, the browser stays on the same page, and it sends no further HTTP requests. 
 end note
-
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
-server-->browser: data.json
-
-note over browser:
-browser executes the event handler
-that renders notes to display
-end note
+server-->browser: Status code: 201 (Created)
